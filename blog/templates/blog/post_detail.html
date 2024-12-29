@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %} 
+{% block content %}
+
+<!-- card -->
+
+<div class="card text-center">
+  <div class="card-body">
+    <div class="row card-header">
+      <div class="col">
+        <h5 class="card-title">{{ post.title }}</h5>
+      </div>
+      <div class="col">
+        <a href="{% url 'post_edit' pk=post.pk %}" class="btn active" role="button" data-bs-toggle="button" aria-pressed="true">Editar</a>
+
+      </div>
+
+    </div>
+    <p class="card-text">{{ post.text|linebreaksbr }}</p>
+  </div>
+  {% if post.published_date %}
+  <div class="card-footer text-body-secondary">{{ post.published_date }}</div>
+  {% endif %}
+</div>
+
+<!-- fim card -->
+
+{% endblock %}
